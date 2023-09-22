@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: #333;
+    border-width: 50cm;
+    box-sizing: border-box;
+    box-shadow: #333;
+    font-family: 'Poppins', sans-serif;
+}
+.bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+}
+.popup2{
+    width: 500px;
+    border-width: thin;
+    background: #fff;
+    box-shadow: #333;
+    border-radius: 10px;
+    border-style: solid;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+}
+
+.PleaseWait{
+    padding: 20px 30px 40px;
+    top: 40%;
+    left: 50%;
+    text-align: center;
+}
+
+.Processing{
+    padding: 50px 30px 10px;
+    top: 60%;
+    left: 50%;
+    text-align: center;
+}
+
+.dot-spin {
+    position: relative;
+    right: -210px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: transparent;
+    box-shadow: 0 -18px 0 0 #8080ff, 12.72984px -12.72984px 0 0 #8080ff, 18px 0 0 0 #8080ff, 12.72984px 12.72984px 0 0 rgba(152, 128, 255, 0), 0 18px 0 0 rgba(152, 128, 255, 0), -12.72984px 12.72984px 0 0 rgba(152, 128, 255, 0), -18px 0 0 0 rgba(152, 128, 255, 0), -12.72984px -12.72984px 0 0 rgba(152, 128, 255, 0);
+    animation: dotSpin 1.5s infinite linear;
+  }
+  
+  @keyframes dotSpin {
+    0%,
+    100% {
+      box-shadow: 0 -18px 0 0 #8080ff, 12.72984px -12.72984px 0 0 #8080ff, 18px 0 0 0 #8080ff, 12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), 0 18px 0 -5px rgba(152, 128, 255, 0), -12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), -18px 0 0 -5px rgba(152, 128, 255, 0), -12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0);
+    }
+    12.5% {
+      box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0), 12.72984px -12.72984px 0 0 #8080ff, 18px 0 0 0 #8080ff, 12.72984px 12.72984px 0 0 #8080ff, 0 18px 0 -5px rgba(152, 128, 255, 0), -12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), -18px 0 0 -5px rgba(152, 128, 255, 0), -12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0);
+    }
+    25% {
+      box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0), 12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0), 18px 0 0 0 #8080ff, 12.72984px 12.72984px 0 0 #8080ff, 0 18px 0 0 #8080ff, -12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), -18px 0 0 -5px rgba(152, 128, 255, 0), -12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0);
+    }
+    37.5% {
+      box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0), 12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0), 18px 0 0 -5px rgba(152, 128, 255, 0), 12.72984px 12.72984px 0 0 #8080ff, 0 18px 0 0 #8080ff, -12.72984px 12.72984px 0 0 #8080ff, -18px 0 0 -5px rgba(152, 128, 255, 0), -12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0);
+    }
+    50% {
+      box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0), 12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0), 18px 0 0 -5px rgba(152, 128, 255, 0), 12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), 0 18px 0 0 #8080ff, -12.72984px 12.72984px 0 0 #8080ff, -18px 0 0 0 #8080ff, -12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0);
+    }
+    62.5% {
+      box-shadow: 0 -18px 0 -5px rgba(152, 128, 255, 0), 12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0), 18px 0 0 -5px rgba(152, 128, 255, 0), 12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), 0 18px 0 -5px rgba(152, 128, 255, 0), -12.72984px 12.72984px 0 0 #8080ff, -18px 0 0 0 #8080ff, -12.72984px -12.72984px 0 0 #8080ff;
+    }
+    75% {
+      box-shadow: 0 -18px 0 0 #8080ff, 12.72984px -12.72984px 0 -5px rgba(152, 128, 255, 0), 18px 0 0 -5px rgba(152, 128, 255, 0), 12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), 0 18px 0 -5px rgba(152, 128, 255, 0), -12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), -18px 0 0 0 #8080ff, -12.72984px -12.72984px 0 0 #8080ff;
+    }
+    87.5% {
+      box-shadow: 0 -18px 0 0 #8080ff, 12.72984px -12.72984px 0 0 #8080ff, 18px 0 0 -5px rgba(152, 128, 255, 0), 12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), 0 18px 0 -5px rgba(152, 128, 255, 0), -12.72984px 12.72984px 0 -5px rgba(152, 128, 255, 0), -18px 0 0 -5px rgba(152, 128, 255, 0), -12.72984px -12.72984px 0 0 #8080ff;
+    }
+  }

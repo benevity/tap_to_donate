@@ -1,0 +1,5 @@
+export const themeColor = '#001a61'
+export const whiteColor = '#fff'
+export const textColor = '#616161'
+export const borderColor = '#efefef'
+export const bgGray = '#fcfcfc'
