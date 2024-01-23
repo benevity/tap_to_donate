@@ -28,7 +28,6 @@ exports.handler = async (event) => {
 //3. capture payment intent if benevity donation is successfull
     let capturedPaymentIntent;
     try{
-            // capturedPaymentIntent = await stripe.paymentIntents.capture(body.stripeData.paymentIntentId); 
         if (benevityResponse.attributes.state.processingStatus == "ACCEPTED"){
             capturedPaymentIntent = await stripe.paymentIntents.capture(body.stripeData.paymentIntentId); 
         }
@@ -36,7 +35,7 @@ exports.handler = async (event) => {
         console.log(error)
       return(error);
     }
-    //4. post record to DB table donation_records
+//4. post record to DB table donation_records
     let dbResponse;
     try{
        dbResponse = await postDonationRecordToDb(benevityResponse.id, 
@@ -52,8 +51,6 @@ exports.handler = async (event) => {
         console.log(e);
         return (e);
     }
-    
-    
     
     const response = {
         statusCode: 200,
