@@ -1,5 +1,5 @@
 ## Tap to Donate
-This is a proof of concept for a Tap to Donate system using Stripe. Check out our blog post [here]() for more information.
+This is a proof of concept for a Tap to Donate system using Stripe. Check out our blog post [here](https://benevity.com/tech-blog/tap-to-donate) for more information.
 
 Setup and AWS:
 ## Stripe Reader
