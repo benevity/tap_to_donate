@@ -46,8 +46,8 @@ Lambdas to call Benevity API’s
 Lambdas to communicate with Stripe servers
 | Lambda | Role | Layer
 |---|---|---|
-| retrieveConnectionToken | Secret-acces-role | stripe-node-module, aws-sdk-node-module |
-| createPaymentIntent | Secret-acces-role | Stripe-node-module |
+| retrieveConnectionToken | Secret-access-role | stripe-node-module, aws-sdk-node-module |
+| createPaymentIntent | Secret-access-role | Stripe-node-module |
 
 ## Roles
 Create custom roles with following permissions.
@@ -63,9 +63,9 @@ Create custom roles with following permissions.
 Layers are used to upload node-modules. To create a layer zip up nodejs folder and upload to AWS.
 | Layer Name | Dependencies |
 |---|---|
-| axios-node-module | Aixos: 0.27.2 |
+| axios-node-module | Axios: 0.27.2 |
 | mysql-node-module | Mysql: 2.18.1 | 
-| stripe-node-moduel | Stripe: 9.13.0 | 
+| stripe-node-module | Stripe: 9.13.0 | 
 
 ## API Gateway
 GoodnessKiosk-API
@@ -86,7 +86,7 @@ GoodnessKiosk-API
 | /searchForCauses | POST | searchForCause |
 
 ## RDS Database
-Retreive from your setup in AWS (Example: goodness-kiosk-rds.cpe0spwckwwh.us-east-1.rds.amazonaws.com)
+Retrieve from your setup in AWS (Example: goodness-kiosk-rds.cpe0spwckwwh.us-east-1.rds.amazonaws.com)
 U: User Defined
 P: User Defined
 
@@ -99,11 +99,11 @@ To create and seed the database, run .sql script which will create donation_kios
 Standard queue is used to delay sending out email receipts. It takes up to 30 seconds for donation to be updated with receipt_id, so we need to delay calling get donations/{id} API. After a minute, message becomes visible and lambda sendReceipt is triggered.
 donation-ids-standard-queue : Retrieved from within AWS SQS (Example: https://sqs.us-east-1.amazonaws.com/635071431249/donation-ids-standard-queue)
 
-| Configuraiton | Value |
+| Configuration | Value |
 |---|---|
 | Type | Standard |
 | Visibility Timeout | 1 min |
 | Delivery Delay | 1 min | 
-| Receive Messege Wait Time | 20 sec | 
+| Receive Message Wait Time | 20 sec | 
 | Message Retention Period | 4 days | 
-| Maxium Message Size | 256 kb |
+| Maximum Message Size | 256 kb |
