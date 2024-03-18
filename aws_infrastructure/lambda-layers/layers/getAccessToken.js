@@ -1,17 +1,13 @@
 const axios = require("axios");
-const {getSecretValue} = require("./getSecretValue");
 const {getParamsByPath, findParamValue} = require("./getParamsFromSSM");
-   
+
 //Retrieve access token to call API at benevity-staging
 async function getAccessToken(){
-    //get array of parameters for rds
+//get array of parameters for rds
     const params = await getParamsByPath('/taptodonate/benevity/');
     
-    // const oAuthURL ='https://api.benevity-staging.org/oauth2/token?grant_type=client_credentials';
     const oAuthURL = await findParamValue(params, '/taptodonate/benevity/o-auth-url');
-    // const client_secret = await getSecretValue("CLIENT_SECRET");
     const client_secret = await findParamValue(params, '/taptodonate/benevity/client_secret');
-    // const client_id = await getSecretValue("CLIENT_ID");
     const client_id= await findParamValue(params, '/taptodonate/benevity/client_id');
     const auth = client_id + ':' + client_secret;
     const auth_buff = new Buffer.from(auth);

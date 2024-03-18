@@ -23,7 +23,7 @@ export default function CustomModes({
     selectedAmountButton, setSelectedAmountButton,
     donateButtonHandler, cancelDonationButtonHandler,
     activeStep, setActiveStep,
-    showTapToDonate, setShowTapToDonate,
+    showTapToDonate, setshowtaptodonate,
 }) {
 
     const [causes, setCauses] = useState([]);
@@ -98,7 +98,7 @@ export default function CustomModes({
                 ></HorizontalLinearStepperMode3>
             }
             <div>
-                {(client.donationStatus == "succeeded") && <SuccessfulCustomDonation donationData={donationData} client={client} setClient={setClient} setShowTapToDonate={setShowTapToDonate}></SuccessfulCustomDonation>}
+                {(client.donationStatus == "succeeded") && <SuccessfulCustomDonation donationData={donationData} client={client} setClient={setClient} setshowtaptodonate={setshowtaptodonate}></SuccessfulCustomDonation>}
                 {(client.donationStatus == "failed") && <DonationFailed donationData={donationData} client={client} setClient={setClient}></DonationFailed>}
             </div>
         </>

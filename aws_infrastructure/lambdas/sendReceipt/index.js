@@ -1,6 +1,6 @@
-const {getDonationInfo} = require("./getDonationInfo");
-const {sendReceipt} = require("./sendReceipt");
-const {sendToQueue} = require("./sendToQueue");
+const {getDonationInfo} = require("getDonationInfo");
+const {sendReceipt} = require("sendReceipt");
+const {sendToQueue} = require("sendToQueue");
 var AWS = require('aws-sdk');
 var sqs= new AWS.SQS();
 

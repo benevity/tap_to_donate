@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const {getParamsByPath, findParamValue} = require("./getParamsFromSSM");
+const {getParamsByPath, findParamValue} = require("getParamsFromSSM");
 
 exports.handler = async (event) =>{
 //exports.handler = async () =>{
@@ -16,18 +16,22 @@ exports.handler = async (event) =>{
     let body=JSON.parse(event.body);
     let client_id = body.client_id;
     let response;
+    const headers = {
+        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+        "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS
+    };
     //let client_id = 1;
     let sqlQuery=`SELECT benevity_donation_id, stripe_payment_id, donation_records.reader_serial_number, donation_records.amount, currency, donation_records.anonymous,recipient_id, recipient_name,transaction_dts
-                    FROM donation_records
-                    LEFT JOIN readers ON donation_records.reader_serial_number = readers.reader_serial_number
-                    WHERE client_id="${client_id}"`
+                  FROM donation_records
+                           LEFT JOIN readers ON donation_records.reader_serial_number = readers.reader_serial_number
+                  WHERE client_id="${client_id}"`
     try {
         const data = await new Promise((resolve, reject) => {
             connection.connect(function (err) {
                 if (err) {
                     reject(err);
                 }
-                
+
                 connection.query(sqlQuery,  function (err, result) {
                     if (err) {
                         console.log("Error:" + err);
@@ -38,26 +42,32 @@ exports.handler = async (event) =>{
                 });
             });
         });
-        
-        console.log('data')
-        console.log(data)
+
         if(data==null){
-            return{
+            response = {
                 statusCode:404,
+                headers,
                 body:"Configs Not Found"
-            }
+            };
+            console.log(response);
+            return response;
         }
-    return {
-        statusCode: 200,
-        body: JSON.stringify(data)
-    };
+
+        response = {
+            statusCode: 200,
+            headers,
+            body: JSON.stringify(data)
+        };
+        console.log(response);
+        return response;;
     } catch (err) {
-        return {
+        response = {
             statusCode: 400,
+            headers,
             body: err.message
         };
+        console.log(response);
+        return response;
     }
-    
-    
-    
+
 };

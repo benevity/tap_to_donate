@@ -1,7 +1,7 @@
 //API Gateway url
-export const APIGateWayURL= "https://bgpep19xtb.execute-api.us-east-1.amazonaws.com"
+export const APIGateWayURL= process.env.REACT_APP_API_URL
 
 //CLIENT_ID, used to access and post configs to database. 
-//Would be set when client admininistrator logs-in with their credentials.
+//Would be set when client administrator logs-in with their credentials.
 export const CLIENT_ID="1";
 

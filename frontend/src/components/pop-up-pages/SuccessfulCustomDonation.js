@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import './popUpWindow.css';
 <meta name='viewpoint' content='width=device-width, initial-scale=1.0'></meta>
 
-function SuccessfulCustomDonation({donationData, client, setClient,setShowTapToDonate}) {
+function SuccessfulCustomDonation({donationData, client, setClient,setshowtaptodonate}) {
     const popUpDisplayTimer = 10;//seconds
     const [countDown, setCountDown]=useState(popUpDisplayTimer);
     useEffect(()=>{
@@ -22,7 +22,7 @@ function SuccessfulCustomDonation({donationData, client, setClient,setShowTapToD
         }
         return() => {
             clearTimeout(popupTimer);
-            setShowTapToDonate(true);
+            setshowtaptodonate(true);
         }
     }, []);
 
@@ -30,7 +30,7 @@ function SuccessfulCustomDonation({donationData, client, setClient,setShowTapToD
     function OkButtonHandler() {
         setClient({...client, donationStatus:false})
         clearTimeout(popupTimer);
-        setShowTapToDonate(true);
+        setshowtaptodonate(true);
     }
     return (
         <Box className="bg"

@@ -9,7 +9,7 @@ text-align:center
 `
 const TapToDonate = React.forwardRef((props, ref) => {
     function hideTapToDonate() {
-        props.setShowTapToDonate(false);
+        props.setshowtaptodonate(false);
     }
     return (
         <div {...props} ref={ref} onClick={hideTapToDonate}>

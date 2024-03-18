@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const {getParamsByPath, findParamValue} = require("./getParamsFromSSM");
+const {getParamsByPath, findParamValue} = require("getParamsFromSSM");
 
 exports.handler = async (event) =>{
 //get array of parameters for rds
@@ -13,6 +13,10 @@ exports.handler = async (event) =>{
         port: findParamValue(params,"/taptodonate/rds/port"),
     });
     let body=JSON.parse(event.body);
+    const headers =  {
+        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+            "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS
+    };
     let response;
     let sqlQuery1=  `UPDATE configs
                     SET deactivated_dts=current_timestamp()
@@ -31,26 +35,34 @@ exports.handler = async (event) =>{
                     if (err) {
                         reject(err);
                     }
+                    resolve(result);
                 });
                 connection.query(sqlQuery2, function (err, result) {
                     if(err){
                         reject(err)
                     }
+                    resolve(result);
                     connection.destroy();
                 });
 
             });
         });
-        
-    return {
-        statusCode: 200,
-        body: JSON.stringify(data)
-    };
+
+        response = {
+            statusCode: 200,
+            headers,
+            body: JSON.stringify(data)
+        };
+        console.log(response);
+        return response;
     } catch (err) {
-        return {
+        response = {
             statusCode: 400,
+            headers,
             body: err.message
         };
+        console.log(response);
+        return response;
     }
     
     

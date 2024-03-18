@@ -33,7 +33,7 @@ export default function DonorPage() {
     const [activeStep, setActiveStep] = useState(0);
     const [selectedAmountButton, setSelectedAmountButton] = useState(5);
     const [donationData, setDonationData] = useState({});
-    const [showTapToDonate, setShowTapToDonate] = useState(true);
+    const [showtaptodonate, setshowtaptodonate] = useState(true);
     let reconnectIntervalId;
     let reconnectIntervalTime = 20;//20 seconds
 
@@ -45,7 +45,7 @@ export default function DonorPage() {
 
     async function unexpectedDisconnect() {
         setActiveStep(0);
-        setShowTapToDonate(true);
+        setshowtaptodonate(true);
         // alert("Stripe reader disconnected")
         console.log("Stripe reader disconnected")
         console.log(client);
@@ -286,11 +286,11 @@ export default function DonorPage() {
         <>
             {config.operating_mode != 0 &&
                 <div>
-                    <Slide direction="down" in={!showTapToDonate} mountOnEnter unmountOnExit>
+                    <Slide direction="down" in={!showtaptodonate} mountOnEnter unmountOnExit>
                         <SimpleTopHeader></SimpleTopHeader>
                     </Slide>
-                    <Slide direction="up" in={showTapToDonate} mountOnEnter unmountOnExit>
-                        <TapToDonate setShowTapToDonate={setShowTapToDonate}></TapToDonate>
+                    <Slide direction="up" in={showtaptodonate} mountOnEnter unmountOnExit>
+                        <TapToDonate setshowtaptodonate={setshowtaptodonate}></TapToDonate>
                     </Slide>
                 </div>
             }
@@ -315,7 +315,7 @@ export default function DonorPage() {
                         donateButtonHandler={donateButtonHandler} cancelDonationButtonHandler={cancelDonationButtonHandler}
                         selectedAmountButton={selectedAmountButton} setSelectedAmountButton={setSelectedAmountButton}
                         activeStep={activeStep} setActiveStep={setActiveStep}
-                        showTapToDonate={showTapToDonate} setShowTapToDonate={setShowTapToDonate}
+                        showtaptodonate={showtaptodonate} setshowtaptodonate={setshowtaptodonate}
                     ></CustomModes>}
             </CenterWrapper>
         </>

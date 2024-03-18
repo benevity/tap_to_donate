@@ -1,14 +1,16 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "description": "mysql node module",
+  "description": "stripe modules",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "serhiy",
   "license": "ISC",
   "dependencies": {
-    "mysql": "^2.18.1"
+    "stripe": "9.13.0",
+    "mysql": "^2.18.1",
+    "axios": "^0.27.2"
   }
 }

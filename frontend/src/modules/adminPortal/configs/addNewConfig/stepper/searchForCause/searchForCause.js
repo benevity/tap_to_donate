@@ -15,7 +15,16 @@ export default function SearchForCause({config, setConfig}) {
     });
     const [queryString, setQueryString] = useState("");
     async function searchHandler() {
-        setQueryString(`?q=${searchQuery.searchQ}&state=${searchQuery.country}-${searchQuery.state}`);
+        let searchQueryStr = `?q=${searchQuery.searchQ}`;
+
+        if(searchQuery.country) {
+            searchQueryStr += `&country=${searchQuery.country}`;
+        }
+        if(searchQuery.country && searchQuery.state) {
+            searchQueryStr += `&state=${searchQuery.country}-${searchQuery.state}`;
+        }
+
+        setQueryString(`${searchQueryStr}`);
     }
 
     return (<>
